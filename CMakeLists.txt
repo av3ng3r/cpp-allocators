@@ -1,0 +1,36 @@
+cmake_minimum_required(VERSION 3.15)
+project(cpp_allocators VERSION 0.1.0 LANGUAGES CXX)
+
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+
+add_library(allocators
+    src/memory_pool.cpp
+    src/slab_allocator.cpp
+)
+
+target_include_directories(allocators
+    PUBLIC
+        $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+        $<INSTALL_INTERFACE:include>
+)
+
+add_executable(example_pool examples/example_pool.cpp)
+target_link_libraries(example_pool allocators)
+
+add_executable(example_slab examples/example_slab.cpp)
+target_link_libraries(example_slab allocators)
+
+install(TARGETS allocators
+    EXPORT allocatorsTargets
+    ARCHIVE DESTINATION lib
+    LIBRARY DESTINATION lib
+)
+
+install(DIRECTORY include/ DESTINATION include)
+
+install(EXPORT allocatorsTargets
+    FILE allocatorsConfig.cmake
+    NAMESPACE alloc::
+    DESTINATION lib/cmake/allocators
+)

@@ -1,0 +1,12 @@
+build/
+*.o
+*.obj
+*.dll
+*.so
+*.dylib
+*.exe
+*.cache
+*.log
+.vscode/
+.idea/
+.DS_Store
