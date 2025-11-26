@@ -7,6 +7,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 add_library(allocators
     src/memory_pool.cpp
     src/slab_allocator.cpp
+    src/arena_allocator.cpp
 )
 
 target_include_directories(allocators
@@ -20,6 +21,9 @@ target_link_libraries(example_pool allocators)
 
 add_executable(example_slab examples/example_slab.cpp)
 target_link_libraries(example_slab allocators)
+
+add_executable(example_arena examples/example_arena.cpp)
+target_link_libraries(example_arena allocators)
 
 install(TARGETS allocators
     EXPORT allocatorsTargets
