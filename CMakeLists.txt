@@ -8,6 +8,7 @@ add_library(allocators
     src/memory_pool.cpp
     src/slab_allocator.cpp
     src/arena_allocator.cpp
+    src/monotonic_allocator.cpp
 )
 
 target_include_directories(allocators
@@ -24,6 +25,9 @@ target_link_libraries(example_slab allocators)
 
 add_executable(example_arena examples/example_arena.cpp)
 target_link_libraries(example_arena allocators)
+
+add_executable(example_monotonic examples/example_monotonic.cpp)
+target_link_libraries(example_monotonic allocators)
 
 install(TARGETS allocators
     EXPORT allocatorsTargets
