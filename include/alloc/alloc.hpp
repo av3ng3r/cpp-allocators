@@ -3,3 +3,5 @@
 #include "alloc/memory_pool.hpp"
 #include "alloc/slab_allocator.hpp"
 #include "alloc/arena_allocator.hpp"
+#include "alloc/monotonic_allocator.hpp"
+#include "alloc/stack_allocator.hpp"
