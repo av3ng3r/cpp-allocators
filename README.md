@@ -26,7 +26,6 @@ A fast allocator for fixed-size objects.
 - Zero fragmentation  
 - Ideal for many objects of identical size  
 
----
 
 ## **2. Slab Allocator**
 A general small-object allocator using power-of-two size classes:
@@ -41,7 +40,6 @@ A general small-object allocator using power-of-two size classes:
 - Great for variable small-size allocations  
 - Predictable O(1) allocation behavior  
 
----
 
 ## **3. Arena Allocator (Bump Allocator)**
 The simplest and fastest allocation strategy.
@@ -53,7 +51,6 @@ The simplest and fastest allocation strategy.
 - Zero fragmentation, strong locality  
 - Perfect for short-lived bursts of allocations  
 
----
 
 ## **4. Monotonic Allocator**
 A smarter, growing version of the Arena Allocator.
@@ -67,7 +64,6 @@ A smarter, growing version of the Arena Allocator.
 
 *(Lightweight alternative to `std::pmr::monotonic_buffer_resource`.)*
 
----
 
 ## **5. Stack Allocator (LIFO Allocator)**
 Arena-style allocator with push/pop markers.
@@ -80,7 +76,6 @@ Arena-style allocator with push/pop markers.
 - Zero fragmentation  
 - Perfect for nested scopes, temporary structures, recursive algorithms  
 
----
 
 ### More allocators coming soon:
 - Freelist Allocator  
