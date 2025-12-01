@@ -40,6 +40,7 @@ A general small-object allocator using power-of-two size classes:
 - Great for variable small-size allocations  
 - Predictable O(1) allocation behavior  
 
+This is a size-class based slab allocator similar to what tcmalloc and Redis use (not the Linux kernel slab).
 
 ## **3. Arena Allocator (Bump Allocator)**
 The simplest and fastest allocation strategy.
