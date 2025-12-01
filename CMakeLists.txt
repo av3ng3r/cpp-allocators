@@ -10,6 +10,7 @@ add_library(allocators
     src/arena_allocator.cpp
     src/monotonic_allocator.cpp
     src/stack_allocator.cpp
+    src/cache_slab_allocator.cpp
 )
 
 target_include_directories(allocators
@@ -32,6 +33,12 @@ target_link_libraries(example_monotonic allocators)
 
 add_executable(example_stack examples/example_stack.cpp)
 target_link_libraries(example_stack allocators)
+
+add_executable(example_slab_cache_basic examples/example_slab_cache_basic.cpp)
+target_link_libraries(example_slab_cache_basic allocators)
+
+add_executable(example_slab_cache_ctor_dtor examples/example_slab_cache_ctor_dtor.cpp)
+target_link_libraries(example_slab_cache_ctor_dtor allocators)
 
 install(TARGETS allocators
     EXPORT allocatorsTargets
