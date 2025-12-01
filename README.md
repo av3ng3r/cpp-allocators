@@ -79,11 +79,14 @@ Arena-style allocator with push/pop markers.
 
 
 ### More allocators coming soon:
-- Freelist Allocator  
-- Buddy Allocator  
-- Thread-Local Allocators  
-- Hybrid Allocators  
-- PMR memory_resource wrappers  
+- 1. True Slab Allocator (Linux Kernel SLAB/SLUB)
+- 2. Buddy Allocator
+- 3. FreeList + Coalescing Allocator (Malloc-like Heap Allocator)
+- 4. TLSF Allocator (Two-Level Segregated Fit)
+- 5. Thread-Local Arena / Per-Thread Allocator
+- 6. Lock-Free FreeList Allocator
+- 7. Huge-Page / Aligned Allocator
+- 8. Composite Allocator
 
 Stay tuned!
 
@@ -142,8 +145,11 @@ target_link_libraries(my_app alloc::allocators)
 
 Upcoming allocators:
 
-- **Monotonic / Arena Allocator**
-- **Stack Allocator**
-- **PMR-compatible `memory_resource` wrappers**
-- **Thread-local Slab Allocator**
-- **Benchmark Suite**
+- **True Slab Allocator (Linux Kernel SLAB/SLUB)**
+- **Buddy Allocator**
+- **FreeList + Coalescing Allocator (Malloc-like Heap Allocator)**
+- **TLSF Allocator (Two-Level Segregated Fit)**
+- **Thread-Local Arena / Per-Thread Allocator**
+- **Lock-Free FreeList Allocator**
+- **Huge-Page / Aligned Allocator**
+- **Composite Allocator**
